@@ -387,7 +387,13 @@ body {
       }
     }
   }
+  .menuMobile{
+    display: none;
+  }
 }
+
+
+
 @keyframes saturate {
   0% {
     filter: saturate(0%);

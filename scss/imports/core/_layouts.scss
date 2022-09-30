@@ -270,7 +270,6 @@ body {
           height: 200px;
         }
       }
-      
     }
     input,
     textarea {
@@ -295,6 +294,7 @@ body {
       .container .header-container {
         .logo {
           filter: brightness(20);
+          @include transition($t);
         }
         .menu {
           display: none;
@@ -345,6 +345,7 @@ body {
       .container {
         a {
           filter: brightness(20);
+          @include transition($t);
         }
         .menu {
           display: none;
@@ -382,6 +383,10 @@ body {
       }
     }
     body {
+      main {
+        transform: translateX(0);
+        @include transition($t);
+      }
       .slider .active {
         z-index: 10;
         .container .row .col-md-7 {
@@ -462,8 +467,10 @@ body {
           display: block;
           height: 450px;
           margin-top: 20px;
+          position: relative;
           .flickity-prev-next-button {
-            top: 60%;
+            top: 50%;
+            transform: translateY(-50%);
             z-index: 11;
             .flickity-button-icon {
               left: 50%;
@@ -474,16 +481,72 @@ body {
             }
           }
           .previous {
-            left: 0;
+            left: -10px;
           }
           .next {
-            right: 0;
+            right: -10px;
           }
         }
         .slider-blog {
           display: none;
         }
       }
+    }
+    .colorWhenMenuActive {
+      background-color: transparent;
+      .container {
+        a {
+          filter: unset;
+          @include transition($t);
+        }
+        .hamburger {
+          span {
+            background-color: $black-cl;
+            @include transition(0.3s);
+          }
+        }
+        .header-container {
+          .logo {
+            filter: unset;
+            @include transition($t);
+          }
+          .hamburger {
+            span {
+              background-color: $black-cl;
+              @include transition(0.3s);
+            }
+          }
+        }
+      }
+    }
+    .menuMobile {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: fixed;
+      background-color: $white-cl;
+      transform: translateX(100%);
+      @include transition($t);
+      z-index: 12;
+      ul {
+        li {
+          text-align: center;
+          a {
+            @include text(25px, IT, 80px, $black-cl, none);
+          }
+        }
+      }
+    }
+    .menuMobile-active {
+      transform: translateX(0);
+      @include transition($t);
+    }
+    .bodyActive {
+      transform: translateX(-50%);
+      @include transition($t);
     }
     footer {
       p {
@@ -513,6 +576,9 @@ body {
           font-size: 22px;
         }
       }
+    }
+    .fixed-position {
+      touch-action: none;
     }
   }
   @include xxs {

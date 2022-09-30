@@ -36,7 +36,7 @@ $(".prevnext .prev").on("click", function () {
 $(".prevnext .next").on("click", function () {
   $(".slider .slider_container-img").flickity("next");
 });
-//parallax
+//parallax & menu mobile
 if (window.innerWidth > 768) {
   var $carousel = $(".slider .slider_container-img").flickity();
   var flkty = $carousel.data("flickity");
@@ -125,8 +125,27 @@ window.addEventListener("scroll", function () {
   }
 });
 $(".hamburger").on("click", function () {
-  console.log("hello");
   $(".hamburger").toggleClass("activeHamburger");
+  $(".menuMobile").toggleClass("menuMobile-active");
+  $(".header-half").toggleClass("colorWhenMenuActive");
+  $(".header-full").toggleClass("colorWhenMenuActive");
+  var main = $("main");
+  var body = $("body");
+  main.toggleClass("bodyActive");
+  body.toggleClass("fixed-position");
+});
+$(".menuMobile ul li a").on("click", function () {
+  var main = $("main");
+  var body = $("body");
+  main.removeClass("bodyActive");
+  body.removeClass("fixed-position");
+  $(".hamburger").removeClass("activeHamburger");
+  $(".menuMobile").removeClass("menuMobile-active");
+  $(".header-half").removeClass("colorWhenMenuActive");
+  $(".header-full").removeClass("colorWhenMenuActive");
+  console.log("====================================");
+  console.log(main);
+  console.log("====================================");
 });
 
 $(".blog .slider-blog").flickity({
@@ -160,18 +179,8 @@ $(".sliderBlockMobile").flickity({
   lazyLoad: 2,
   prevNextButtons: true,
   pageDots: false,
+  autoPlay:false,
   on: {
     ready: function (index) {},
-    change: function (index) {
-      //   let content = $(".studySettle .content-study .paragraph-text");
-      //   console.log(content);
-      //   content.eq(index).addClass("active-content");
-      //   content.eq(index).siblings("p").removeClass("active-content");
-    },
-    dragMove: function (event, pointer, moveVector) {
-      console.log("====================================");
-      console.log(event, pointer, moveVector);
-      console.log("====================================");
-    },
   },
 });
