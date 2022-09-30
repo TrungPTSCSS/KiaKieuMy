@@ -1,0 +1,89 @@
+// css header
+.header-half {
+  opacity: 0;
+  visibility: hidden;
+  height: var(--heightHeader);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  z-index: 999;
+  @include transition($t);
+
+  .container .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      cursor: pointer;
+    }
+    .menu {
+      font-family: var(--ff-header);
+      font-size: var(--fs-header);
+      ul {
+        display: flex;
+        li {
+          padding-left: 20px;
+          a {
+            color: $black-cl;
+          }
+        }
+      }
+    }
+    .hamburger {
+      display: none;
+    }
+  }
+}
+.header-full {
+  opacity: 0;
+  visibility: hidden;
+  height: var(--heightHeader);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background: $white-cl;
+  z-index: 999;
+  transition: $t;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      cursor: pointer;
+    }
+    .menu {
+      font-family: var(--ff-header);
+      font-size: var(--fs-header);
+      ul {
+        display: flex;
+        li {
+          padding-left: 20px;
+          a {
+            color: $black-cl;
+          }
+        }
+      }
+    }
+    .hamburger {
+      display: none;
+    }
+  }
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+  @include transition($t);
+}
+@include xs {
+  header {
+  }
+}
+@include md {
+  header {
+  }
+}

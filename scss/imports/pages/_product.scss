@@ -1,0 +1,80 @@
+body {
+  .productPage {
+    .banner {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      img {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+      }
+      .flickity-prev-next-button {
+        width: 60px;
+        height: 60px;
+        top: unset;
+        transform: none;
+        bottom: 0;
+      }
+      .flickity-prev-next-button.next {
+        right: 0;
+      }
+      .flickity-prev-next-button.previous {
+        right: 60px;
+        left: unset;
+      }
+      .flickity-prev-next-button .flickity-button-icon {
+        width: 40%;
+        height: 40%;
+        @include mid(false);
+      }
+    }
+    .title {
+      margin-top: 40px;
+      position: relative;
+      margin-bottom: 20px;
+      &::before {
+        content: "";
+        background: $black-cl;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    .title-color {
+      font-family: var(--ff-title);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .color {
+      height: 50px;
+    }
+    .price {
+      margin-top: 10px;
+      font-size: 30px;
+      font-family: ITL;
+      margin-bottom: 20px;
+      span {
+        font-family: IT;
+      }
+    }
+    .button {
+      text-transform: uppercase;
+    }
+    .body-text {
+      margin-top: 40px;
+      .infoname {
+        font-family: IT;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .text {
+        font-family: EB;
+        font-size: 20px;
+        text-align: justify;
+      }
+    }
+  }
+}

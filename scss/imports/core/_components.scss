@@ -1,0 +1,23 @@
+section {
+  height: 100vh;
+  width: 100%;
+
+  // .title-sub {
+  //   @include subTitle(true);
+  // }
+}
+.global {
+  @include mid(true);
+} // css components
+.button {
+  cursor: pointer;
+  background: $black-bg-cl;
+  padding: 15px;
+  text-align: center;
+  @include text(var(--fs-button), var(--ff-button), normal, $white-cl, none);
+  a {
+    color: $white-cl;
+    padding: 15px;
+    text-decoration: none;
+  }
+}
