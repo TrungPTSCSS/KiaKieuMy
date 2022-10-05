@@ -1,79 +1,243 @@
 body {
   .productPage {
-    .banner {
-      width: 100%;
-      height: 100vh;
-      position: relative;
-      img {
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
+    .info {
+      .productBanner {
+        align-items: flex-end;
       }
-      .flickity-prev-next-button {
-        width: 60px;
-        height: 60px;
-        top: unset;
-        transform: none;
-        bottom: 0;
+      .image {
+        height: 80vh;
+        position: relative;
+        padding-right: 0;
+        cursor: pointer;
+        &:hover img {
+          filter: unset;
+          @include transition($t);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(50%);
+          @include transition($t);
+        }
+        .flickity-prev-next-button {
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 11;
+          background-color: transparent;
+          .flickity-button-icon {
+            fill: white;
+            left: 50%;
+            top: 50%;
+            width: 40%;
+            height: 40%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .previous {
+          left: 15px;
+        }
+        .next {
+          right: 15px;
+        }
       }
-      .flickity-prev-next-button.next {
-        right: 0;
-      }
-      .flickity-prev-next-button.previous {
-        right: 60px;
-        left: unset;
-      }
-      .flickity-prev-next-button .flickity-button-icon {
-        width: 40%;
-        height: 40%;
-        @include mid(false);
+      .detail {
+        &_name {
+          position: relative;
+          @include text(60px, IT, normal, $black-cl, none);
+          margin-bottom: 5px;
+          cursor: pointer;
+          &::before {
+            position: absolute;
+            content: "";
+            width: 25%;
+            height: 5px;
+            background-color: $black-cl;
+            bottom: 2px;
+            @include transition($t);
+          }
+          &:hover::before {
+            background-color: rgb(160, 0, 0);
+            width: 40%;
+            @include transition($t);
+          }
+        }
+        &_des {
+          @include text(24px, IT, normal, $black-cl, none);
+          margin-bottom: 25px;
+        }
+        &_more {
+          @include text(16px, IT, normal, $black-cl, none);
+          &-des {
+            margin-top: 10px;
+            @include text(16px, EB, normal, $black-cl, none);
+          }
+          &-button {
+            cursor: pointer;
+            margin-top: 15px;
+            background-color: $black-cl;
+            width: 50%;
+            padding: 15px;
+            text-align: center;
+            @include text(16px, IT, normal, $white-cl, none);
+          }
+        }
       }
     }
-    .title {
-      margin-top: 40px;
-      position: relative;
-      margin-bottom: 20px;
-      &::before {
-        content: "";
-        background: $black-cl;
+    .introduce {
+      background-color: $black-cl;
+      .image {
+        height: 60vh;
+        .flickity-viewport {
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 10%;
+            height: 100%;
+            border-width: 1000px 100px 0 0;
+            border-color: #000 transparent transparent transparent;
+            z-index: 12;
+            border-style: solid;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: -52px;
+            width: 10%;
+            height: 100%;
+            transform: rotate(180deg);
+            border-width: 1000px 100px 0 0;
+            border-color: #000 transparent transparent transparent;
+            z-index: 12;
+            border-style: solid;
+          }
+        }
+        &-child {
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .flickity-prev-next-button.previous {
+          display: none;
+        }
+        .flickity-prev-next-button.next {
+          width: 90px;
+          height: 90px;
+          right: 0px;
+          border-radius: 100%;
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            #000000 0%,
+            rgba(0, 0, 0, 0.89) 62.5%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+              50% 50% at 50% 50%,
+              #ffffff 0%,
+              rgba(255, 255, 255, 0.89) 62.5%,
+              rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: -1;
+          }
+          @include transition(all $t);
+          .flickity-button-icon {
+            width: 30%;
+            height: 30%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: $white-cl;
+            transition: $t;
+          }
+          &:hover {
+            width: 120px;
+            height: 120px;
+            right: -30px;
+            &::before {
+              opacity: 1;
+            }
+            .flickity-button-icon {
+              color: #333;
+              transition: $t;
+            }
+          }
+        }
+        &-child {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &-child {
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          transform: translateX(-50%);
+          transition: $t;
+        }
+        .active {
+          visibility: visible;
+          opacity: 1;
+          transform: translateX(0);
+          z-index: 2;
+          transition: $t;
+        }
+        .title {
+          @include text(42px, IT, normal, $white-cl, none);
+          margin-bottom: 25px;
+          position: relative;
+          &::before {
+            content: "";
+            background-color: $white-cl;
+            width: 70%;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+          }
+        }
+        .descrip {
+          @include text(16px, EB, normal, $white-cl, none);
+        }
+      }
+    }
+    .bannerKIA {
+      .img {
         width: 100%;
-        height: 2px;
-        position: absolute;
-        bottom: 0;
-      }
-    }
-    .title-color {
-      font-family: var(--ff-title);
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .color {
-      height: 50px;
-    }
-    .price {
-      margin-top: 10px;
-      font-size: 30px;
-      font-family: ITL;
-      margin-bottom: 20px;
-      span {
-        font-family: IT;
-      }
-    }
-    .button {
-      text-transform: uppercase;
-    }
-    .body-text {
-      margin-top: 40px;
-      .infoname {
-        font-family: IT;
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      .text {
-        font-family: EB;
-        font-size: 20px;
-        text-align: justify;
+        height: 100%;
+        &-child {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include mid();
+          }
+        }
       }
     }
   }

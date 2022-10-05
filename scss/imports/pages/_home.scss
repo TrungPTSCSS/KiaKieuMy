@@ -79,7 +79,7 @@ body {
       }
       &::before {
         transform: translateX(100%);
-        transition: 1.2s;
+        @include transition(1.2s);
       }
       &::after {
         opacity: 1;
@@ -132,14 +132,15 @@ body {
           height: 80px;
           position: relative;
           background: #fefefe;
-          transition: $t;
+          @include transition($t);
+
           cursor: pointer;
           img {
             @include mid(false);
           }
           &:hover {
             background: #e6e6e6;
-            transition: $t;
+            @include transition($t);
           }
         }
       }
@@ -151,7 +152,9 @@ body {
       opacity: 0;
       transition-delay: $t;
       transition-duration: $t;
-      transition: 0.2s;
+
+      @include transition(0.2s);
+
       .title {
         margin-bottom: 20px;
         transform: translateY(100%);
@@ -176,7 +179,6 @@ body {
       opacity: 1;
       transition-delay: 0.2s;
       transition-duration: $t;
-      transition: $t;
       .title {
         transform: translateY(0);
         transition-delay: $t;
@@ -244,7 +246,7 @@ body {
             transform: scale(1.2);
             opacity: 0;
             visibility: hidden;
-            transition: 0.7s;
+            @include transition(0.7s);
           }
         }
         .name {
@@ -255,24 +257,26 @@ body {
           font-family: var(--ff-product);
           @include mid(false);
           top: 55%;
-          transition: $t;
+          @include transition($t);
         }
         &:hover {
           will-change: transform;
           transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
-          transition: all 2000ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s;
+          @include transition(
+            all 2000ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s
+          );
           .img {
             img {
               transform: scale(1);
               opacity: 1;
               visibility: visible;
-              transition: 0.7s;
+              @include transition(0.7s);
             }
           }
           .name {
             font-size: 75px;
             mix-blend-mode: overlay;
-            transition: $t;
+            @include transition($t);
           }
         }
       }
@@ -312,11 +316,12 @@ body {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: $t;
+          @include transition($t);
         }
       }
       &-content {
-        transition: $t;
+        @include transition($t);
+
         background: $background-cl;
         padding: 25px 15px;
         height: 180px;
@@ -333,7 +338,7 @@ body {
           height: 1px;
           bottom: -5px;
           background: $black-cl;
-          transition: $t;
+          @include transition($t);
         }
       }
       &-description {
@@ -344,20 +349,20 @@ body {
       &:hover {
         .blogDetail-img img {
           transform: scale(1.1);
-          transition: $t;
+          @include transition($t);
         }
         .blogDetail-title::before {
           width: 70%;
           background: $black-cl;
-          transition: $t;
+          @include transition($t);
         }
         .blogDetail-content {
           background: $background-hv;
-          transition: $t;
+          @include transition($t);
         }
       }
     }
-    .sliderBlockMobile{
+    .sliderBlockMobile {
       display: none;
     }
   }
@@ -387,12 +392,10 @@ body {
       }
     }
   }
-  .menuMobile{
+  .menuMobile {
     display: none;
   }
 }
-
-
 
 @keyframes saturate {
   0% {
