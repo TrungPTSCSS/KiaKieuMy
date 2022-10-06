@@ -3,7 +3,7 @@ function goPage(url) {
   console.log("====================================");
   console.log(a);
   console.log("====================================");
-  // window.location.href = a;
+  window.location.href = a;
 }
 
 $(".hamburger").on("click", function () {
