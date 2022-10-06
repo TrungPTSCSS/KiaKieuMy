@@ -1,3 +1,11 @@
+function goPage(url) {
+  var a = "http://" + window.location.host + "/index.html" + url;
+  console.log("====================================");
+  console.log(a);
+  console.log("====================================");
+  window.location.href = a;
+}
+
 $(".hamburger").on("click", function () {
   $(".hamburger").toggleClass("activeHamburger");
   $(".menuMobile").toggleClass("menuMobile-active");
@@ -16,13 +24,7 @@ $(".menuMobile ul li a").on("click", function () {
   $(".menuMobile").removeClass("menuMobile-active");
   $(".header-full").removeClass("colorWhenMenuActive");
 });
-$(function goPage(url) {
-  var a = "http://" + window.location.host + "/index.html" + url;
-  console.log("====================================");
-  console.log(a);
-  console.log("====================================");
-  window.location.href = a;
-});
+
 //slider
 $(".info .image").flickity({
   cellAlign: "center",
