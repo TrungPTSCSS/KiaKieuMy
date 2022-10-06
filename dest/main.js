@@ -1,10 +1,21 @@
-// $(document).ready(function () {
-
-// });
-window.addEventListener('load', (event) => {
+$(document).ready(function () {
   const loading = $(".loading");
-  loading.addClass("activeLoading");
+  setTimeout(function () {
+    loading.addClass("activeLoading");
+    localStorage.setItem("loading", true);
+  }, 1000);
+  // const loadingCheck = localStorage.getItem("loading");
+  // const loading = $(".loading");
+  // if (!loadingCheck) {
+  //   setTimeout(function () {
+  //     loading.addClass("activeLoading");
+  //     localStorage.setItem("loading", true);
+  //   }, 1000);
+  // } else {
+  //   loading[0].style.display = "none";
+  // }
 });
+
 // *******Slider*********
 $(".slider .slider_container-img").flickity({
   cellAlign: "left",

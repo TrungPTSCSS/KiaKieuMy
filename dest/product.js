@@ -16,7 +16,13 @@ $(".menuMobile ul li a").on("click", function () {
   $(".menuMobile").removeClass("menuMobile-active");
   $(".header-full").removeClass("colorWhenMenuActive");
 });
-
+function goPage(url) {
+  var a = "http://" + window.location.host + "/index.html" + url;
+  console.log("====================================");
+  console.log(a);
+  console.log("====================================");
+  window.location.href = a;
+}
 //slider
 $(".info .image").flickity({
   cellAlign: "center",
@@ -27,9 +33,6 @@ $(".info .image").flickity({
   prevNextButtons: true,
   pageDots: false,
   autoPlay: false,
-  on: {
-    ready: function (index) {},
-  },
 });
 
 $(".introduce .image").flickity({
@@ -65,9 +68,7 @@ $(".bannerKIA .img").flickity({
   cellAlign: "left",
   on: {
     ready: function (index) {},
-    change: function (index) {
-      
-    },
+    change: function (index) {},
   },
 });
 $(".container .back").on("click", function () {
@@ -76,4 +77,3 @@ $(".container .back").on("click", function () {
     "5000"
   );
 });
-
