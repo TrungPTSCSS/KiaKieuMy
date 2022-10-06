@@ -1,7 +1,10 @@
-setTimeout(function () {
+// $(document).ready(function () {
+
+// });
+window.addEventListener('load', (event) => {
   const loading = $(".loading");
   loading.addClass("activeLoading");
-}, 1500);
+});
 // *******Slider*********
 $(".slider .slider_container-img").flickity({
   cellAlign: "left",
@@ -179,7 +182,7 @@ $(".sliderBlockMobile").flickity({
   lazyLoad: 2,
   prevNextButtons: true,
   pageDots: false,
-  autoPlay:false,
+  autoPlay: false,
   on: {
     ready: function (index) {},
   },
