@@ -16,13 +16,13 @@ $(".menuMobile ul li a").on("click", function () {
   $(".menuMobile").removeClass("menuMobile-active");
   $(".header-full").removeClass("colorWhenMenuActive");
 });
-function goPage(url) {
+$(function goPage(url) {
   var a = "http://" + window.location.host + "/index.html" + url;
   console.log("====================================");
   console.log(a);
   console.log("====================================");
   window.location.href = a;
-}
+});
 //slider
 $(".info .image").flickity({
   cellAlign: "center",

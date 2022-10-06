@@ -103,9 +103,6 @@ $(".product .prod_main").flickity({
     ready: function (index) {},
     change: function (index) {},
     dragMove: function (event, pointer, moveVector) {
-      console.log("====================================");
-      console.log(event, pointer, moveVector);
-      console.log("====================================");
     },
   },
 });
@@ -157,9 +154,6 @@ $(".menuMobile ul li a").on("click", function () {
   $(".menuMobile").removeClass("menuMobile-active");
   $(".header-half").removeClass("colorWhenMenuActive");
   $(".header-full").removeClass("colorWhenMenuActive");
-  console.log("====================================");
-  console.log(main);
-  console.log("====================================");
 });
 
 $(".blog .slider-blog").flickity({
